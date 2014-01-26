@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- basic styles -->
+        <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+
+        <!-- basic scripts -->
+        <h:outputScript name="jquery/jquery-1.10.2.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.min.js" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <h:outputText value="&lt;!--[if lt IE 9]&gt;" escape="false" />
+        <h:outputScript library="bootstrap/js" name="respond.min.js" />
+        <h:outputText value="&lt;![endif]--&gt;" escape="false" />
+
+        <title><h:outputText value="${resources.title}"/></title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <ui:include src="top.xhtml"/>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                <ui:include src="content.xhtml"/>
+            </ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <ui:include src="bottom.xhtml"/>
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

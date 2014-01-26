@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'/>
+        <h:outputStylesheet library="css" name="css.css"/>
+        <title>Second page in the Order Flow</title>
+    </h:head>
+    <h:body>
+        
+        <h1>Second page in the Order Flow</h1>
+        <p>Flow bean name: #{orderBean.name}</p>
+        <p>Has a flow: #{null != facesContext.application.flowHandler.currentFlow}.</p>
+        
+        <h:form prependId="false">
+            
+            <h:panelGrid columns="2" cellpadding="2" cellspacing="2" columnClasses="columnVerticalAlign,columnVerticalAlign">
+                
+                <h:panelGrid columns="2" cellpadding="2" cellspacing="2" rendered="#{null != flowScope.adressLine1Customer?true:false}">
+                    <f:facet name="header">
+                        <h:outputLabel value="Customer Address"/>
+                    </f:facet>
+                    <h:outputLabel value="Address Line 1: "/>
+                    <h:outputLabel value="#{flowScope.adressLine1Customer}"/>
+                    
+                    <h:outputLabel value="Address Line 2: "/>
+                    <h:outputLabel value="#{flowScope.adressLine2Customer}"/>
+                    
+                    <h:outputLabel value="City: "/>
+                    <h:outputLabel value="#{flowScope.cityCustomer}" />
+                    
+                    <h:outputLabel value="State: "/>
+                    <h:outputLabel value="#{flowScope.stateCustomer}"/>
+                    
+                    <h:outputLabel value="Zip/Postcode: "/>
+                    <h:outputLabel value="#{flowScope.postalCodeCustomer}"/>
+                    
+                    <h:outputLabel value="Country: "/>
+                    <h:outputLabel value="#{flowScope.countryCustomer}"/>
+               
+                </h:panelGrid>
+                
+                <h:panelGrid columns="3" cellpadding="2" cellspacing="2">
+                    <f:facet name="header">
+                        <h:outputLabel value="Billing Address"/>
+                    </f:facet>
+
+                    <h:outputLabel for="adressLine1" value="Address Line 1: "/>
+                    <h:inputText id="adressLine1" value="#{orderBean.adressLine1}" required="true" maxlength="255"/>
+                    <h:message for="adressLine1"/>
+
+                    <h:outputLabel for="adressLine2" value="Address Line 2: "/>
+                    <h:inputText id="adressLine2" value="#{orderBean.adressLine2}" maxlength="255"/>
+                    <h:message for="adressLine2"/>
+
+                    <h:outputLabel for="city" value="City: "/>
+                    <h:inputText id="city" value="#{orderBean.city}" required="true" maxlength="50"/>
+                    <h:message for="city"/>
+
+                    <h:outputLabel for="state" value="State: "/>
+                    <h:inputText id="state" value="#{orderBean.state}"/>
+                    <h:message for="state"/>
+
+                    <h:outputLabel for="postalCode" value="Zip/Postcode: "/>
+                    <h:inputText id="postalCode" value="#{orderBean.postalCode}" required="true" maxlength="5">
+                        <f:convertNumber/>
+                    </h:inputText>
+                    <h:message for="postalCode"/>
+
+                    <h:outputLabel for="country" value="Country: "/>
+                    <h:inputText id="country" value="#{orderBean.country}" required="true" maxlength="50"/>
+                    <h:message for="country"/>
+
+                    <h:outputLabel/>
+                    
+                </h:panelGrid>
+            </h:panelGrid>
+            
+            <h:commandButton immediate="true" value="back" action="order" />
+            <h:commandButton value="next" action="orderB" />
+            <h:commandButton immediate="true" action="returnFromOrderFlow" value="Exit Flow"/>
+            
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:body>
+        <ui:composition template="./WEB-INF/templates/template.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <h4><h:outputText value="Message is : ${resources.welcomeMessage}"/></h4>
+                    <h:form prependId="false">
+                        <div class="form-group">
+                            <div class="col col-md-10 col-md-offset-2">
+                                <p>Click Customer to register your customer information and enter the customer flow.</p>
+                                <h:commandButton value="Customer" action="customer"/>
+                            </div>
+                            <div class="col col-md-10 col-md-offset-2">
+                                <p>Click Order to register your order information and enter the order flow.</p>
+                                <h:commandButton value="Order" action="order"/>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+
+</html>
